@@ -6,8 +6,45 @@ import {Apollo} from "apollo-angular";
 export class ApolloCarsService {
 
   private apollo: Apollo;
+  clientAddSubscription;
+  clientUpdateSubscription;
+  clientDeleteSubscription;
   constructor(apollo: Apollo) {
     this.apollo= apollo;
+  }
+
+  createServiceSubscriptions(){
+    this.clientUpdateSubscription = this.apollo.subscribe({
+      query: gql`
+
+        subscription onCarUpdated{
+          carUpdated {
+            _id
+            name
+          }
+        }`,
+      variables: {},
+    })
+    this.clientAddSubscription = this.apollo.subscribe({
+      query: gql`
+        subscription onCarAdded{
+          carAdded {
+            _id
+            name
+          }
+        }`,
+      variables: {},
+    })
+    this.clientDeleteSubscription = this.apollo.subscribe({
+      query: gql`
+        subscription onCarDeleted{
+          carDeleted {
+            _id
+            name
+          }
+        }`,
+      variables: {},
+    })
   }
 
   getAllCars(): any {
@@ -19,9 +56,56 @@ export class ApolloCarsService {
             name
           }
         }`
-    });
+    })
   }
 
+  addNewCar (car) {
+    let quatedName = '"' + car.name + '"';
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation {
+          addCar(name : ${quatedName}) {
+            name
+          }
+        }
+      `,
+    })
+  }
 
+  editCar (previousName, currentName) {
+    let prevQuatedName = '"' + previousName + '"';
+    let currentQuatedName = '"' + currentName + '"';
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation {
+          updateCar(currName : ${prevQuatedName}, newName : ${currentQuatedName}) {
+            name
+          }
+        }
+      `,
+    })
+  }
+  deleteCar (name) {
+    let quatedName = '"' + name + '"';
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation {
+          deleteCar(name : ${quatedName}) {
+            _id
+            name
+          }
+        }
+      `,
+    })
+  }
 
+  subscribeToUpdates() {
+    return this.clientUpdateSubscription;
+  }
+  subscribeToAdds() {
+    return this.clientAddSubscription;
+  }
+  subscribeToDeletes() {
+    return this.clientDeleteSubscription;
+  }
 }
