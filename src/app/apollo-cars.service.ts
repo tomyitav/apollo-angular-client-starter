@@ -1,18 +1,17 @@
-import { Injectable } from '@angular/core';
-import { client } from './graphql.client'
-import 'rxjs/add/operator/toPromise';
-import gql from 'graphql-tag';
+import {Injectable} from "@angular/core";
+import gql from "graphql-tag";
+import {Apollo} from "apollo-angular";
 
 @Injectable()
 export class ApolloCarsService {
 
-  client;
-  constructor() {
-    this.client = client;
+  private apollo: Apollo;
+  constructor(apollo: Apollo) {
+    this.apollo= apollo;
   }
 
-  getAllCars() {
-    return this.client.query({
+  getAllCars(): any {
+    return this.apollo.query({
       query: gql`
         query car{
           car{
@@ -22,5 +21,7 @@ export class ApolloCarsService {
         }`
     });
   }
+
+
 
 }

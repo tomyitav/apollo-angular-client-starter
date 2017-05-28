@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ApolloCarsService } from '../apollo-cars.service'
+import {Component, OnInit} from "@angular/core";
+import {ApolloCarsService} from "../apollo-cars.service";
 
 @Component({
   selector: 'app-cars',
@@ -18,10 +18,9 @@ export class CarsComponent implements OnInit {
   }
 
   getCars() {
-    this.apolloCars.getAllCars().then(cars => {
+    this.apolloCars.getAllCars().map(data => data.data.car).subscribe(cars => {
         console.log('Got data: ', cars);
-        this.cars = cars.data.car;
-        console.log('current cars: ', this.cars);
+        this.cars = cars;
       }
     )
   }

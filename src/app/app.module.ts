@@ -1,19 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MdButtonModule,  MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule} from '@angular/material'
-import { ApolloModule } from 'angular2-apollo';
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
+import {FormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule} from "@angular/material";
+import {ApolloModule} from "apollo-angular";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {ApolloCarsService} from './apollo-cars.service'
-// import { client } from  "./graphql.client";
-
-import 'hammerjs'
-
-import { AppComponent } from './app.component';
-import { TomCardComponent } from './tom-card/tom-card.component';
-import { CarsComponent } from './cars/cars.component';
+import {ApolloCarsService} from "./apollo-cars.service";
+import {getClient} from "./graphql.client";
+import "hammerjs";
+import {AppComponent} from "./app.component";
+import {TomCardComponent} from "./tom-card/tom-card.component";
+import {CarsComponent} from "./cars/cars.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +29,7 @@ import { CarsComponent } from './cars/cars.component';
     MdToolbarModule,
     MdMenuModule,
     MdIconModule,
-    ApolloModule,
+    ApolloModule.withClient(getClient),
     FlexLayoutModule
   ],
   providers: [ApolloCarsService],
