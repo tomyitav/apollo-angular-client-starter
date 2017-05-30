@@ -12,12 +12,14 @@ import "hammerjs";
 import {AppComponent} from "./app.component";
 import {TomCardComponent} from "./tom-card/tom-card.component";
 import {CarsComponent} from "./cars/cars.component";
+import { TransportToolbarComponent } from './transport-toolbar/transport-toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TomCardComponent,
-    CarsComponent
+    CarsComponent,
+    TransportToolbarComponent
   ],
   imports: [
     BrowserModule,
