@@ -36,6 +36,10 @@ import { RouterModule } from '@angular/router'
     FlexLayoutModule,
     RouterModule.forRoot([
       {
+        path: '',
+        component: CarsComponent
+      },
+      {
         path: 'cars',
         component: CarsComponent
       }
