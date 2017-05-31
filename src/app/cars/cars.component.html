@@ -1,21 +1,21 @@
 <md-card *ngFor="let car of cars ; let i = index">
-  <div>
-    <md-card-header>
-      <md-card-title>
-        <h2>Details</h2>
-      </md-card-title>
-    </md-card-header>
-    <md-card-content>
-      <span class="head">id: </span>
-      <span>{{car._id}}</span>
-      <br/>
-      <span class="head">name: </span>
-      <label>{{car.name}}</label>
-    </md-card-content>
-    <md-card-actions>
-      <button md-button>LIKE</button>
-      <button md-button>DISLIKE</button>
-    </md-card-actions>
-    <md-divider></md-divider>
-  </div>
+  <md-card-header>
+    <md-card-title>
+      <h2>Details</h2>
+    </md-card-title>
+  </md-card-header>
+  <md-divider></md-divider>
+  <br/>
+  <md-card-content>
+    <span class="head">id: </span>
+    <span>{{car._id}}</span>
+    <br/>
+    <span class="head">name: </span>
+    <label>{{car.name}}</label>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>DISLIKE</button>
+  </md-card-actions>
+  <md-divider></md-divider>
 </md-card>

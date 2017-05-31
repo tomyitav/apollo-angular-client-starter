@@ -13,6 +13,7 @@ import {AppComponent} from "./app.component";
 import {TomCardComponent} from "./tom-card/tom-card.component";
 import {CarsComponent} from "./cars/cars.component";
 import { TransportToolbarComponent } from './transport-toolbar/transport-toolbar.component';
+import { RouterModule } from '@angular/router'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,13 @@ import { TransportToolbarComponent } from './transport-toolbar/transport-toolbar
     MdMenuModule,
     MdIconModule,
     ApolloModule.withClient(getClient),
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule.forRoot([
+      {
+        path: 'cars',
+        component: CarsComponent
+      }
+    ])
   ],
   providers: [ApolloCarsService],
   bootstrap: [AppComponent]
