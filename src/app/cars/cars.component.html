@@ -14,8 +14,15 @@
     <label>{{car.name}}</label>
   </md-card-content>
   <md-card-actions>
-    <button md-button color="primary">Edit</button>
-    <button  md-button color="warn">Remove</button>
+    <button md-menu-item>
+      <md-icon>border_color</md-icon>
+      <!--<span>Edit</span>-->
+    </button>
+    <button md-menu-item>
+      <md-icon>delete</md-icon>
+      <!--<span>Remove</span>-->
+    </button>
   </md-card-actions>
   <md-divider></md-divider>
 </md-card>
+<app-form-shower [(showed)]="formShown"></app-form-shower>

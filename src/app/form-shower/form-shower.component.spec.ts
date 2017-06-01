@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TomCardComponent } from './tom-card.component';
+import { FormShowerComponent } from './form-shower.component';
 
-describe('TomCardComponent', () => {
-  let component: TomCardComponent;
-  let fixture: ComponentFixture<TomCardComponent>;
+describe('FormShowerComponent', () => {
+  let component: FormShowerComponent;
+  let fixture: ComponentFixture<FormShowerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TomCardComponent ]
+      declarations: [ FormShowerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TomCardComponent);
+    fixture = TestBed.createComponent(FormShowerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

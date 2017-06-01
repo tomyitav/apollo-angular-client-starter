@@ -9,6 +9,7 @@ import {ApolloCarsService} from "../apollo-cars.service";
 export class CarsComponent implements OnInit {
 
   cars;
+  formShown = false;
   constructor(private apolloCars: ApolloCarsService) {
     this.getCars();
   }
