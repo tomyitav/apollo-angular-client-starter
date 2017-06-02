@@ -1,6 +1,7 @@
-# Ng2Material
+# apollo-angular-client-starter
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
+This project can help you quickly get started in connecting to existing apollo server in angular 2+
 
 ## Development server
 
