@@ -1,28 +1,27 @@
-<md-card *ngFor="let car of cars ; let i = index">
-  <md-card-header>
-    <md-card-title>
-      <h2>Details</h2>
-    </md-card-title>
-  </md-card-header>
-  <md-divider></md-divider>
-  <br/>
-  <md-card-content>
-    <span class="head">id: </span>
-    <span>{{car._id}}</span>
-    <br/>
-    <span class="head">name: </span>
-    <label>{{car.name}}</label>
-  </md-card-content>
-  <md-card-actions>
-    <button md-menu-item>
-      <md-icon>border_color</md-icon>
-      <!--<span>Edit</span>-->
-    </button>
-    <button md-menu-item>
-      <md-icon>delete</md-icon>
-      <!--<span>Remove</span>-->
-    </button>
-  </md-card-actions>
-  <md-divider></md-divider>
-</md-card>
-<app-form-shower [(showed)]="formShown"></app-form-shower>
+<div class="row" >
+  <div class="container">
+    <div class="large-10 columns">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th width="200px">Id</th>
+          <th width="230px">Name</th>
+          <!--<th width="25%">email</th>-->
+          <th width="25%">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let car of cars ; let i = index">
+          <td><a href="#">{{car._id}}</a></td>
+          <td>{{car.name}}</td>
+          <td><a class="btn btn-success" ng-click="$ctrl.showEditForm(car)" name={{car.name}}>Edit</a>
+            <a class="btn btn-danger" title="Sure???" ng-click="$ctrl.removeCar(car.name)" data-toggle="confirmation"
+               data-singleton="true" data-popout="true">Delete</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <app-form-shower [(showed)]="formShown"></app-form-shower>
+  </div>
+</div>
+

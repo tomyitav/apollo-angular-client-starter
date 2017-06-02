@@ -1,3 +1,7 @@
-.example-spacer {
-  flex: 1 1 auto;
+.navbar {
+  background-color: #829aff;
+}
+
+.nav-link {
+  font-family: "Arial Black";
 }
