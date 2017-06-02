@@ -26,4 +26,9 @@ export class CarsComponent implements OnInit {
     )
   }
 
+  showEditForm(car) {
+    console.log('Clicked linked');
+    this.formShown = true;
+  }
+
 }
