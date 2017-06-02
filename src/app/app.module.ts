@@ -11,10 +11,11 @@ import {getClient} from "./graphql.client";
 import "hammerjs";
 import {AppComponent} from "./app.component";
 import {CarsComponent} from "./cars/cars.component";
-import { TransportToolbarComponent } from './transport-toolbar/transport-toolbar.component';
-import { RouterModule } from '@angular/router';
-import { FormShowerComponent } from './form-shower/form-shower.component';
-import { CarFormComponent } from './car-form/car-form.component'
+import {TransportToolbarComponent} from "./transport-toolbar/transport-toolbar.component";
+import {RouterModule} from "@angular/router";
+import {FormShowerComponent} from "./form-shower/form-shower.component";
+import {CarFormComponent} from "./car-form/car-form.component";
+import {CarsTableComponent} from "./cars-table/cars-table.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CarFormComponent } from './car-form/car-form.component'
     CarsComponent,
     TransportToolbarComponent,
     FormShowerComponent,
-    CarFormComponent
+    CarFormComponent,
+    CarsTableComponent
   ],
   imports: [
     BrowserModule,
