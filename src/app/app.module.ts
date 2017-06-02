@@ -13,14 +13,16 @@ import {AppComponent} from "./app.component";
 import {CarsComponent} from "./cars/cars.component";
 import { TransportToolbarComponent } from './transport-toolbar/transport-toolbar.component';
 import { RouterModule } from '@angular/router';
-import { FormShowerComponent } from './form-shower/form-shower.component'
+import { FormShowerComponent } from './form-shower/form-shower.component';
+import { CarFormComponent } from './car-form/car-form.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     CarsComponent,
     TransportToolbarComponent,
-    FormShowerComponent
+    FormShowerComponent,
+    CarFormComponent
   ],
   imports: [
     BrowserModule,
