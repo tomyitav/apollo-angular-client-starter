@@ -1,5 +1,7 @@
 .btn-primary {
   background-color: #193fff;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .btn-primary:hover {

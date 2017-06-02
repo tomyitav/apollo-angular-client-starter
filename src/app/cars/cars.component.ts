@@ -13,6 +13,7 @@ export class CarsComponent implements OnInit {
   formShown = false;
   constructor(private apolloCars: ApolloCarsService) {
     this.getCars();
+    this.startSubscriptions();
   }
 
   ngOnInit() {
@@ -28,9 +29,52 @@ export class CarsComponent implements OnInit {
   }
 
   showEditForm(car) {
-    console.log('Clicked linked');
     this.selectedCar = car;
     this.formShown = true;
+  }
+
+  startSubscriptions() {
+    this.subscribeToUpdates();
+    this.subscribeToAdds();
+    this.subscribeToDeletes();
+  }
+
+  subscribeToUpdates() {
+    this.apolloCars.subscribeToUpdates()
+      .subscribe({
+        next: data => {
+          console.log('Got data- ', data);
+          console.log('Pushing to car list...');
+        },
+        error: (err) => {
+          console.log('Error- ', err);
+        }
+      })
+  }
+  subscribeToAdds() {
+    this.apolloCars.subscribeToAdds()
+      .subscribe({
+        next: data => {
+          console.log('Got data- ', data);
+          console.log('Added to car list...');
+        },
+        error: (err) => {
+          console.log('Error- ', err);
+        }
+      })
+  }
+  subscribeToDeletes() {
+    this.apolloCars.subscribeToDeletes()
+      .subscribe({
+        next: data => {
+          console.log('Got data- ', data);
+          console.log('Removing from cars list...');
+          console.log(data.carDeleted);
+        },
+        error: (err) => {
+          console.log('Error- ', err);
+        }
+      })
   }
 
 }

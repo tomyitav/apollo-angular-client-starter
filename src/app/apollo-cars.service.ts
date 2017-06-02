@@ -11,9 +11,11 @@ export class ApolloCarsService {
   clientDeleteSubscription;
   constructor(apollo: Apollo) {
     this.apollo= apollo;
+    this.createServiceSubscriptions();
   }
 
   createServiceSubscriptions(){
+    console.log('Creating subscriptions...');
     this.clientUpdateSubscription = this.apollo.subscribe({
       query: gql`
 
