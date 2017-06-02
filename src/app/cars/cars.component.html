@@ -20,7 +20,7 @@
         </tbody>
       </table>
     </div>
-    <app-car-form [hidden]="!formShown"></app-car-form>
+    <app-car-form [hidden]="!formShown" [oldCar]="selectedCar"></app-car-form>
     <app-form-shower [(showed)]="formShown"></app-form-shower>
   </div>
 </div>

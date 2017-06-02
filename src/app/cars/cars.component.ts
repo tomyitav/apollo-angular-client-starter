@@ -9,6 +9,7 @@ import {ApolloCarsService} from "../apollo-cars.service";
 export class CarsComponent implements OnInit {
 
   cars;
+  selectedCar;
   formShown = false;
   constructor(private apolloCars: ApolloCarsService) {
     this.getCars();
@@ -28,6 +29,7 @@ export class CarsComponent implements OnInit {
 
   showEditForm(car) {
     console.log('Clicked linked');
+    this.selectedCar = car;
     this.formShown = true;
   }
 
