@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from "@angular/core";
 import {ApolloCarsService} from "../apollo-cars.service";
 
 @Component({
@@ -8,7 +8,8 @@ import {ApolloCarsService} from "../apollo-cars.service";
 })
 export class CarFormComponent implements OnInit {
 
-  @Input() oldCar;
+  selectedCar;
+  @Output() selectedChange = new EventEmitter();
   constructor(private apolloCars: ApolloCarsService) { }
 
   ngOnInit() {
@@ -16,8 +17,19 @@ export class CarFormComponent implements OnInit {
 
   onSubmit(car) {
     console.log('Logging form ', car);
-    console.log('Logging old ', this.oldCar.name);
-    this.apolloCars.editCar(this.oldCar.name, car);
+    console.log('Logging old ', this.selectedCar.name);
+    this.apolloCars.editCar(this.selectedCar.name, car);
+    this.selected = car;
+  }
+
+  @Input()
+  get selected() {
+    return this.selectedCar;
+  }
+
+  set selected(val) {
+    this.selectedCar= val;
+    this.selectedChange.emit(this.selectedCar);
   }
 
 }

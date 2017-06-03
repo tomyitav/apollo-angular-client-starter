@@ -1,4 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from "@angular/core";
+import {ApolloCarsService} from "../apollo-cars.service";
 
 @Component({
   selector: 'app-cars-table',
@@ -12,7 +13,7 @@ export class CarsTableComponent implements OnInit {
   showForm = false;
   @Output() showedChange = new EventEmitter();
   @Output() selectedChange = new EventEmitter();
-  constructor() { }
+  constructor(private apolloCars: ApolloCarsService) { }
 
   ngOnInit() {
   }
@@ -20,6 +21,10 @@ export class CarsTableComponent implements OnInit {
   showEditForm(car) {
     this.selected = car;
     this.showed = true;
+  }
+
+  deleteCar(car) {
+    this.apolloCars.deleteCar(car.name);
   }
 
   @Input()

@@ -1,7 +1,7 @@
 <div class="row" >
   <div class="container">
     <app-cars-table [cars]="cars" [(showed)]="formShown" [(selected)]="selectedCar"></app-cars-table>
-    <app-car-form [hidden]="!formShown" [oldCar]="selectedCar"></app-car-form>
+    <app-car-form [hidden]="!formShown" [(selected)]="selectedCar"></app-car-form>
     <app-form-shower [(showed)]="formShown"></app-form-shower>
   </div>
 </div>
