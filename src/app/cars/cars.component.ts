@@ -28,11 +28,6 @@ export class CarsComponent implements OnInit {
     )
   }
 
-  showEditForm(car) {
-    this.selectedCar = car;
-    this.formShown = true;
-  }
-
   startSubscriptions() {
     this.subscribeToUpdates();
     this.subscribeToAdds();
