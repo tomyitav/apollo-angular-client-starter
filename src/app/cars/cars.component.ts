@@ -37,9 +37,8 @@ export class CarsComponent implements OnInit {
   subscribeToUpdates() {
     this.apolloCars.subscribeToUpdates()
       .subscribe({
-        next: data => {
-          console.log('Got data- ', data);
-          console.log('Pushing to car list...');
+        next: updatedCar => {
+          this.getCars();
         },
         error: (err) => {
           console.log('Error- ', err);
@@ -50,8 +49,7 @@ export class CarsComponent implements OnInit {
     this.apolloCars.subscribeToAdds()
       .subscribe({
         next: data => {
-          console.log('Got data- ', data);
-          console.log('Added to car list...');
+          this.getCars();
         },
         error: (err) => {
           console.log('Error- ', err);
@@ -62,9 +60,7 @@ export class CarsComponent implements OnInit {
     this.apolloCars.subscribeToDeletes()
       .subscribe({
         next: data => {
-          console.log('Got data- ', data);
-          console.log('Removing from cars list...');
-          console.log(data.carDeleted);
+          this.getCars();
         },
         error: (err) => {
           console.log('Error- ', err);
