@@ -14,8 +14,6 @@ import {CarsComponent} from "./cars/cars.component";
 import {TransportToolbarComponent} from "./transport-toolbar/transport-toolbar.component";
 import {RouterModule} from "@angular/router";
 import {FormShowerComponent} from "./form-shower/form-shower.component";
-import {CarFormComponent} from "./car-form/car-form.component";
-import {CarsTableComponent} from "./cars-table/cars-table.component";
 
 @NgModule({
   declarations: [
@@ -23,8 +21,6 @@ import {CarsTableComponent} from "./cars-table/cars-table.component";
     CarsComponent,
     TransportToolbarComponent,
     FormShowerComponent,
-    CarFormComponent,
-    CarsTableComponent
   ],
   imports: [
     BrowserModule,
