@@ -70,12 +70,13 @@ export class CarsComponent implements OnInit {
 
   onSubmit(car) {
     console.log('Logging form carrr ', car);
-    console.log('Logging old ', this.selectedCar.name);
-    this.apolloCars.editCar(this.selectedCar.name, car);
+    console.log('Logging old ', this.selectedCar);
+    this.apolloCars.editCar(this.selectedCar, car);
+    this.selectedCar = car;
   }
 
   showEditForm(car) {
-    this.selectedCar = car;
+    this.selectedCar = car.name;
     this.formShown = true;
   }
 
