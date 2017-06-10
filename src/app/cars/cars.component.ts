@@ -8,8 +8,11 @@ import {ApolloCarsService} from "../apollo-cars.service";
 })
 export class CarsComponent implements OnInit {
 
+  readonly addText = 'Add ';
+  readonly editText = 'Edit ';
   cars;
   selectedCar;
+  editModeText = this.addText;
   formShown = false;
   constructor(private apolloCars: ApolloCarsService) {
     this.getCars();
@@ -60,6 +63,7 @@ export class CarsComponent implements OnInit {
     this.apolloCars.subscribeToDeletes()
       .subscribe({
         next: data => {
+          console.log('loggign after delete');
           this.getCars();
         },
         error: (err) => {
@@ -71,13 +75,19 @@ export class CarsComponent implements OnInit {
   onSubmit(car) {
     console.log('Logging form carrr ', car);
     console.log('Logging old ', this.selectedCar);
-    this.apolloCars.editCar(this.selectedCar, car);
+    if(this.editModeText === this.editText) {
+      this.apolloCars.editCar(this.selectedCar, car);
+    }
+    else {
+      this.apolloCars.addNewCar(car);
+    }
     this.selectedCar = car;
   }
 
   showEditForm(car) {
     this.selectedCar = car.name;
     this.formShown = true;
+    this.editModeText = 'Edit ';
   }
 
   deleteCar(car) {

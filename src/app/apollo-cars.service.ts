@@ -61,8 +61,8 @@ export class ApolloCarsService {
     })
   }
 
-  addNewCar (car) {
-    let quatedName = '"' + car.name + '"';
+  addNewCar (carName) {
+    let quatedName = '"' + carName + '"';
     return this.apollo.mutate({
       mutation: gql`
         mutation {
