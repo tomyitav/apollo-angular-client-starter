@@ -57,7 +57,8 @@ export class ApolloCarsService {
             _id
             name
           }
-        }`
+        }`,
+      fetchPolicy: 'network-only'
     })
   }
 
