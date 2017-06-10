@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 
 @Component({
   selector: 'app-form-shower',
@@ -8,7 +8,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class FormShowerComponent{
 
   showForm = false;
+  readonly addStr = 'Add ';
+  readonly editStr = 'Edit ';
+  text;
   @Output() showedChange = new EventEmitter();
+  @Output() editTextChange = new EventEmitter();
 
   @Input()
   get showed() {
@@ -20,7 +24,20 @@ export class FormShowerComponent{
     this.showedChange.emit(this.showForm);
   }
 
+  @Input()
+  get editText() {
+    return this.text;
+  }
+
+  set editText(val) {
+    this.text= val;
+    this.editTextChange.emit(this.text);
+  }
+
   toggleForm() {
     this.showed = !this.showed;
+    if(!this.showed) {
+      this.editText = this.addStr;
+    }
   }
 }
