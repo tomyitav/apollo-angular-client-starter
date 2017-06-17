@@ -14,6 +14,7 @@ import {CarsComponent} from "./cars/cars.component";
 import {TransportToolbarComponent} from "./transport-toolbar/transport-toolbar.component";
 import {RouterModule} from "@angular/router";
 import {FormShowerComponent} from "./form-shower/form-shower.component";
+import {TrainsComponent} from "./trains/trains.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {FormShowerComponent} from "./form-shower/form-shower.component";
     CarsComponent,
     TransportToolbarComponent,
     FormShowerComponent,
+    TrainsComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,10 @@ import {FormShowerComponent} from "./form-shower/form-shower.component";
       {
         path: 'cars',
         component: CarsComponent
+      },
+      {
+        path: 'trains',
+        component: TrainsComponent
       }
     ])
   ],
