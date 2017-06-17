@@ -15,6 +15,7 @@ import {TransportToolbarComponent} from "./transport-toolbar/transport-toolbar.c
 import {RouterModule} from "@angular/router";
 import {FormShowerComponent} from "./form-shower/form-shower.component";
 import {TrainsComponent} from "./trains/trains.component";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {TrainsComponent} from "./trains/trains.component";
     MdIconModule,
     ApolloModule.withClient(getClient),
     FlexLayoutModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       {
         path: '',
