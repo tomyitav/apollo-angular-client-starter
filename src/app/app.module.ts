@@ -6,7 +6,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule} from "@angular/material";
 import {ApolloModule} from "apollo-angular";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {ApolloCarsService} from "./apollo-cars.service";
+import {ApolloCarsService} from "./services/apollo-cars/apollo-cars.service";
 import {getClient} from "./graphql.client";
 import "hammerjs";
 import {AppComponent} from "./app.component";
@@ -16,6 +16,7 @@ import {RouterModule} from "@angular/router";
 import {FormShowerComponent} from "./form-shower/form-shower.component";
 import {TrainsComponent} from "./trains/trains.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {ApolloTrainsService} from "./services/apollo-trains/apollo-trains.service";
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
       }
     ])
   ],
-  providers: [ApolloCarsService],
+  providers: [ApolloCarsService, ApolloTrainsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

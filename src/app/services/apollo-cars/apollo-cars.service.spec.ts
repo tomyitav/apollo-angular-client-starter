@@ -1,6 +1,5 @@
-import { TestBed, inject } from '@angular/core/testing';
-
-import { ApolloCarsService } from './apollo-cars.service';
+import {TestBed, inject} from "@angular/core/testing";
+import {ApolloCarsService} from "./apollo-cars.service";
 
 describe('ApolloCarsService', () => {
   beforeEach(() => {

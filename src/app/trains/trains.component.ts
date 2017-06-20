@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core";
+import {ApolloTrainsService} from "../services/apollo-trains/apollo-trains.service";
 
 @Component({
   selector: 'app-trains',
@@ -7,7 +8,16 @@ import {Component, OnInit} from "@angular/core";
 })
 export class TrainsComponent implements OnInit {
 
-  constructor() { }
+  readonly addText = 'Add ';
+  readonly editText = 'Edit ';
+  trains;
+  selectedTrain;
+  editModeText = this.addText;
+  formShown = false;
+  constructor(private apolloTrain: ApolloTrainsService) {
+    // this.getTrains();
+    // this.startSubscriptions();
+  }
 
   ngOnInit() {
   }
