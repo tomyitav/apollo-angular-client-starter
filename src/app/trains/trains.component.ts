@@ -15,11 +15,18 @@ export class TrainsComponent implements OnInit {
   editModeText = this.addText;
   formShown = false;
   constructor(private apolloTrain: ApolloTrainsService) {
-    // this.getTrains();
+    this.getTrains();
     // this.startSubscriptions();
   }
 
   ngOnInit() {
+  }
+
+  getTrains() {
+    this.apolloTrain.getAllTrains().subscribe(trains => {
+      console.log('got trains: ', trains);
+      this.trains = trains;
+    })
   }
 
 }
