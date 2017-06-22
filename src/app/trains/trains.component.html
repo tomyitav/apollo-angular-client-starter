@@ -25,19 +25,18 @@
       </table>
     </div>
 
-    <!--<form class="container" #carForm = "ngForm"-->
-          <!--(ngSubmit)="onSubmit(carForm.value.newName)" [hidden]="!formShown">-->
-      <!--<div class="form-group">-->
-        <!--<h3>{{editModeText}} car</h3>-->
-        <!--<label>Name:-->
-          <!--<input type="text" class="form-control" name="newName" ngModel/>-->
-        <!--</label>-->
-        <!--<div>-->
-          <!--&lt;!&ndash;<input type="submit" value="editModeText" class="btn btn-info"/>&ndash;&gt;-->
-          <!--<button class="btn btn-info" type="submit">{{editModeText}}</button>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</form>-->
+    <form class="container" #trainForm = "ngForm"
+          (ngSubmit)="onSubmit(trainForm.value.newName)" [hidden]="!formShown">
+      <div class="form-group">
+        <h3>{{editModeText}} car</h3>
+        <label>Name:
+          <input type="text" class="form-control" name="newName" ngModel/>
+        </label>
+        <div>
+          <button class="btn btn-info" type="submit">{{editModeText}}</button>
+        </div>
+      </div>
+    </form>
 
     <app-form-shower [(showed)]="formShown" [(editText)]="editModeText"></app-form-shower>
   </div>
