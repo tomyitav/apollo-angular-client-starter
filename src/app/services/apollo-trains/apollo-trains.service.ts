@@ -1,20 +1,32 @@
 import {Injectable} from "@angular/core";
 import "rxjs/add/observable/of";
-import {Observable} from "rxjs";
+import {Apollo} from "apollo-angular";
+import gql from "graphql-tag";
 
 @Injectable()
 export class ApolloTrainsService {
 
-  constructor() { }
+  private apollo: Apollo;
+  clientAddSubscription;
+  clientUpdateSubscription;
+  clientDeleteSubscription;
+  constructor(apollo: Apollo) {
+    this.apollo= apollo;
+  }
 
   getAllTrains(): any {
-    let trains = [{
-      _id : '1111',
-      name: "first",
-      speed : '100',
-      diesel: true,
-    }]
-    return Observable.of(trains);
+    return this.apollo.query({
+      query: gql`
+        query train{
+          train {
+            _id
+            name
+            speed
+            diesel
+          }
+        }`,
+      fetchPolicy: 'network-only'
+    })
   }
 
 }

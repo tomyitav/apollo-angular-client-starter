@@ -23,7 +23,7 @@ export class TrainsComponent implements OnInit {
   }
 
   getTrains() {
-    this.apolloTrain.getAllTrains().subscribe(trains => {
+    this.apolloTrain.getAllTrains().map(data => data.data.train).subscribe(trains => {
       console.log('got trains: ', trains);
       this.trains = trains;
     })
