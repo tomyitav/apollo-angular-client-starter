@@ -26,14 +26,26 @@
     </div>
 
     <form class="container" #trainForm = "ngForm"
-          (ngSubmit)="onSubmit(trainForm.value.newName)" [hidden]="!formShown">
+          (ngSubmit)="onSubmit(trainForm.value.newName, trainForm.value.newSpeed)" [hidden]="!formShown">
       <div class="form-group">
-        <h3>{{editModeText}} car</h3>
-        <label>Name:
-          <input type="text" class="form-control" name="newName" ngModel/>
-        </label>
-        <div>
-          <button class="btn btn-info" type="submit">{{editModeText}}</button>
+        <div class="jumbotron">
+          <h3>{{editModeText}} train</h3>
+          <div>
+            <label>Name:
+              <input type="text" class="form-control" name="newName" ngModel/>
+            </label>
+          </div>
+          <div>
+            <label>Speed:
+              <input type="text" class="form-control" name="newSpeed" ngModel/>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="newDiesel" ngModel>Diesel</label>
+          </div>
+          <div>
+            <button class="btn btn-info" type="submit">{{editModeText}}</button>
+          </div>
         </div>
       </div>
     </form>

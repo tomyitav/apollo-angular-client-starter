@@ -9,3 +9,8 @@ div * {
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-weight: bold;
 }
+
+.jumbotron {
+  width: 50%;
+  background-color: #98998c;
+}
