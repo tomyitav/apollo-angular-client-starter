@@ -73,7 +73,7 @@ export class CarsComponent implements OnInit {
   }
 
   onSubmit(car) {
-    console.log('Logging form carrr ', car);
+    console.log('Logging form car ', car);
     console.log('Logging old ', this.selectedCar);
     if(this.editModeText === this.editText) {
       this.apolloCars.editCar(this.selectedCar, car);

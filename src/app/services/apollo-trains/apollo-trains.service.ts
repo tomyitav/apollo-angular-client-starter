@@ -29,4 +29,21 @@ export class ApolloTrainsService {
     })
   }
 
+  addTrain(name, speed, diesel) {
+    let quatedName = '"' + name + '"';
+    // let quatedSpeed = '"' + speed + '"';
+    // let quatedDiesel = '"' + diesel + '"';
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation addTrain{
+          addTrain(name : ${quatedName}, speed : ${speed}, diesel : ${diesel}){
+            _id
+            name
+            speed
+            diesel
+          }
+        }`
+    });
+  }
+
 }

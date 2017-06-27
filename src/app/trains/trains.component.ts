@@ -29,4 +29,10 @@ export class TrainsComponent implements OnInit {
     })
   }
 
+  onSubmit(name, speed, diesel) {
+    let parsedSpeed = parseInt(speed);
+    let parsedDiesel = (diesel == 'true');
+    this.apolloTrain.addTrain(name, parsedSpeed, parsedDiesel);
+  }
+
 }
