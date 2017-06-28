@@ -1,6 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { FormShowerComponent } from './form-shower.component';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {FormShowerComponent} from "./form-shower.component";
 
 describe('FormShowerComponent', () => {
   let component: FormShowerComponent;
@@ -22,4 +21,11 @@ describe('FormShowerComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should check toggleForm', () => {
+    expect(component.showed).toBeDefined();
+    expect(component.showed).toBe(false);
+    component.toggleForm();
+    expect(component.showed).toBe(true);
+  })
 });

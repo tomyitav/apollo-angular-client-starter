@@ -1,9 +1,12 @@
 import {TestBed, inject} from "@angular/core/testing";
 import {ApolloCarsService} from "./apollo-cars.service";
+import {ApolloModule} from "apollo-angular";
+import {getClient} from "../../graphql.client";
 
 describe('ApolloCarsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [ApolloModule.withClient(getClient)],
       providers: [ApolloCarsService]
     });
   });
