@@ -16,7 +16,48 @@ export class TrainsComponent implements OnInit {
   formShown = false;
   constructor(private apolloTrain: ApolloTrainsService) {
     this.getTrains();
-    // this.startSubscriptions();
+    this.startSubscriptions();
+  }
+
+  startSubscriptions() {
+    this.subscribeToUpdates();
+    this.subscribeToAdds();
+    this.subscribeToDeletes();
+  }
+
+  subscribeToUpdates() {
+    this.apolloTrain.subscribeToUpdates()
+      .subscribe({
+        next: updatedCar => {
+          this.getTrains();
+        },
+        error: (err) => {
+          console.log('Error- ', err);
+        }
+      })
+  }
+  subscribeToAdds() {
+    this.apolloTrain.subscribeToAdds()
+      .subscribe({
+        next: data => {
+          this.getTrains();
+        },
+        error: (err) => {
+          console.log('Error- ', err);
+        }
+      })
+  }
+  subscribeToDeletes() {
+    this.apolloTrain.subscribeToDeletes()
+      .subscribe({
+        next: train => {
+          console.log('loggign after delete');
+          this.getTrains();
+        },
+        error: (err) => {
+          console.log('Error- ', err);
+        }
+      })
   }
 
   ngOnInit() {
@@ -33,6 +74,11 @@ export class TrainsComponent implements OnInit {
     let parsedSpeed = parseInt(speed);
     let parsedDiesel = (diesel == 'true');
     this.apolloTrain.addTrain(name, parsedSpeed, parsedDiesel);
+  }
+
+  deleteTrain(train) {
+    console.log('Deleting train - ', train.name);
+    this.apolloTrain.deleteTrain(train.name);
   }
 
 }
