@@ -17,7 +17,7 @@
           <td>{{train.name}}</td>
           <td>{{train.speed}}</td>
           <td>{{train.diesel}}</td>
-          <td><a class="btn btn-success" (click)="showEditForm()" name={{train.name}}>Edit</a>
+          <td><a class="btn btn-success" (click)="showEditForm(train)" name={{train.name}}>Edit</a>
             <a class="btn btn-danger" title="Sure???" data-toggle="confirmation"
                data-singleton="true" data-popout="true" (click)="deleteTrain(train)">Delete</a></td>
         </tr>

@@ -73,12 +73,23 @@ export class TrainsComponent implements OnInit {
   onSubmit(name, speed, diesel) {
     let parsedSpeed = parseInt(speed);
     let parsedDiesel = (diesel == 'true');
-    this.apolloTrain.addTrain(name, parsedSpeed, parsedDiesel);
+    if(this.editModeText === this.editText) {
+      console.log('edit');
+    }
+    else {
+      this.apolloTrain.addTrain(name, parsedSpeed, parsedDiesel);
+    }
   }
 
   deleteTrain(train) {
     console.log('Deleting train - ', train.name);
     this.apolloTrain.deleteTrain(train.name);
+  }
+
+  showEditForm(train) {
+    this.editModeText = this.editText;
+    this.selectedTrain = train;
+    this.formShown = true;
   }
 
 }

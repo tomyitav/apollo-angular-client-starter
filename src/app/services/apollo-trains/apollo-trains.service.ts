@@ -86,6 +86,11 @@ export class ApolloTrainsService {
         }`
     });
   }
+
+  editTrain() {
+
+  }
+
   deleteTrain(name) {
     let quatedName = '"' + name + '"';
     return this.apollo.mutate({
