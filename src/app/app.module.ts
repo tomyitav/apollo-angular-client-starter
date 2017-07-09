@@ -17,6 +17,7 @@ import {FormShowerComponent} from "./form-shower/form-shower.component";
 import {TrainsComponent} from "./trains/trains.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {ApolloTrainsService} from "./services/apollo-trains/apollo-trains.service";
+import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2-logger/core";
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {ApolloTrainsService} from "./services/apollo-trains/apollo-trains.servic
       }
     ])
   ],
-  providers: [ApolloCarsService, ApolloTrainsService],
+  providers: [ApolloCarsService, ApolloTrainsService, Logger,
+    { provide: LoggerOptions, useValue: { level: LoggerLevel.INFO }}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

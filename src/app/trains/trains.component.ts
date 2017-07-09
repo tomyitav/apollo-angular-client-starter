@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {ApolloTrainsService} from "../services/apollo-trains/apollo-trains.service";
+import { Logger } from "angular2-logger/core";
 
 @Component({
   selector: 'app-trains',
@@ -14,12 +15,13 @@ export class TrainsComponent implements OnInit {
   selectedTrain;
   editModeText = this.addText;
   formShown = false;
-  constructor(private apolloTrain: ApolloTrainsService) {
+  constructor(private logger: Logger, private apolloTrain: ApolloTrainsService) {
     this.getTrains();
     this.startSubscriptions();
   }
 
   startSubscriptions() {
+    this.logger.info('Starting train subscriptions...');
     this.subscribeToUpdates();
     this.subscribeToAdds();
     this.subscribeToDeletes();
