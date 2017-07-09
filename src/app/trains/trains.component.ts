@@ -76,7 +76,7 @@ export class TrainsComponent implements OnInit {
     let parsedSpeed = parseInt(speed);
     let parsedDiesel = (diesel == 'true');
     if(this.editModeText === this.editText) {
-      console.log('edit');
+      this.apolloTrain.editTrain(this.selectedTrain._id, name, parsedSpeed, parsedDiesel);
     }
     else {
       this.apolloTrain.addTrain(name, parsedSpeed, parsedDiesel);

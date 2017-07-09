@@ -26,7 +26,7 @@
     </div>
 
     <form class="container" #trainForm = "ngForm"
-          (ngSubmit)="onSubmit(trainForm.value.newName, trainForm.value.newSpeed)" [hidden]="!formShown">
+          (ngSubmit)="onSubmit(trainForm.value.newName, trainForm.value.newSpeed, trainForm.value.newDiesel)" [hidden]="!formShown">
       <div class="form-group">
         <div class="jumbotron">
           <h3>{{editModeText}} train</h3>
