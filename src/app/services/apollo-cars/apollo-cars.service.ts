@@ -19,8 +19,8 @@ export class ApolloCarsService {
     this.clientUpdateSubscription = this.apollo.subscribe({
       query: gql`
 
-        subscription onCarUpdated{
-          carUpdated {
+        subscription{
+          carChanged{
             _id
             name
           }

@@ -5,7 +5,7 @@ let networkInterface = createNetworkInterface({
   uri: 'http://localhost:8080/graphql'
 });
 
-const wsClient = new SubscriptionClient(`ws://localhost:8090/`, {
+const wsClient = new SubscriptionClient(`ws://localhost:8090/subscriptions`, {
   reconnect: true,
 });
 
